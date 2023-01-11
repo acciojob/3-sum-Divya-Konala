@@ -1,5 +1,6 @@
 function threeSum(arr, target) {
   //your code here
+	arr.sort();
 	let n=arr.length;
 	let least_sum=arr[0]+arr[1]+arr[2];
 	let least_diff=target-least_sum;
