@@ -7,6 +7,7 @@ function threeSum(arr, target) {
 	least_diff=(least_diff>=0)?least_diff:-least_diff;
 	let i=0,j=1,k=2;
 	while(i<n && j<n && k<n){
+		// console.log(arr[i], arr[j], arr[k]);
 		let curr_sum=arr[i]+arr[j]+arr[k];
 		let curr_diff=target-curr_sum;
 		curr_diff=(curr_diff>=0)?curr_diff:-curr_diff;
@@ -14,19 +15,23 @@ function threeSum(arr, target) {
 			least_diff=curr_diff;
 			least_sum=curr_sum;
 		}
-		if(curr_sum>=target){
+		if(curr_sum==target){
 			return least_sum;
 		}else{
-			if(k<n-1) k++
-			else if(j<n-2){
-				j++; k=j+1;
-			}else if(i<n-3){
-				i++; j=i+1;k=j+1;
+			if(k<n-1){
+				k++;
+			}else if(j<n-2){
+				j++;
+				k=j+1;
 			}else{
-				return least_sum;
+				i++;
+				j=i+1;
+				k=j+1;
 			}
 		}
+		// console.log(least_sum);
 	}
+	return least_sum;
 }
 
 module.exports = threeSum;
